@@ -1,0 +1,372 @@
+/* ================================
+   Dark Theme Tokens
+================================ */
+:root{
+  --bg: #0e0f10;         /* ページ背景 */
+  --panel: #151619;      /* カード/テーブル地 */
+  --panel-2:#1b1d21;     /* もう一段暗いパネル */
+  --line: #282b31;       /* 罫線 */
+  --text: #eaecef;       /* 本文 */
+  --muted:#b8bdc7;       /* 補助テキスト */
+  --accent:#e64646;      /* 見出し/アクセント(赤) */
+  --brand:#e64646;       /* 同上（統一） */
+  --shadow: 0 4px 14px rgba(0,0,0,.45);
+}
+
+/* ================================
+   Base
+================================ */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  line-height:1.65;
+  color:var(--text);
+  background:var(--bg);
+}
+
+a{color:#7fb7ff;text-decoration:none}
+a:hover{text-decoration:underline}
+
+header{
+  background: #0b0c0d;
+  color: #fff;
+  text-align:center;
+  padding:16px 12px;
+  font-size:1.5rem;
+  font-weight:700;
+  border-bottom:1px solid var(--line);
+}
+
+/* ================================
+   Sections
+================================ */
+section{padding:64px 20px; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+section h2{
+  margin:0 0 28px;
+  text-align:center;
+  font-size:1.9rem;
+  letter-spacing:.08em;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+
+/* 中央寄せテキスト */
+.center{text-align:center; color:var(--muted)}
+
+/* ================================
+   Hero Swiper
+================================ */
+.hero-swiper{width:100%; height:60vh; background:#000}
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide{width:100%; height:100%}
+.hero-swiper img{width:100%; height:100%; object-fit:cover; display:block}
+
+/* 矢印/ドットをダーク上で視認性UP */
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next{color:#fff; text-shadow:0 0 6px rgba(0,0,0,.8)}
+.hero-swiper .swiper-pagination-bullet{background:#fff; opacity:.6}
+.hero-swiper .swiper-pagination-bullet-active{opacity:1}
+
+/* ================================
+   Concept（前回の class 名を維持）
+================================ */
+.concept{background:transparent}
+.concept-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:28px; max-width:1000px; margin:0 auto;
+}
+.concept-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:28px 20px;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.concept-item:hover{ transform: translateY(-6px); box-shadow:0 10px 26px rgba(0,0,0,.45) }
+.concept-item .icon{ font-size:42px; display:block; margin-bottom:12px }
+.concept-item h3{ margin:6px 0 8px; font-size:1.1rem; color:#fff }
+.concept-item p{ margin:0; color:var(--muted) }
+
+/* ================================
+   Rooms Grid
+================================ */
+.rooms-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:22px; max-width:1000px; margin:0 auto;
+}
+.room{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
+  text-align:center;
+}
+.room:hover{ transform:translateY(-5px); box-shadow:0 10px 26px rgba(0,0,0,.45); border-color:#363a42 }
+.room img{ width:100%; height:150px; object-fit:cover; display:block; cursor:zoom-in }
+.room p{ margin:10px 0 12px; font-weight:700; color:#cfd6e4 }
+
+/* ================================
+   Gallery Modal (Swiper inside)
+   ※ HTML/JS は前回のまま
+================================ */
+.modal{
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(0,0,0,.92);
+}
+.modal[aria-hidden="false"]{ display:block }
+.modal-inner{
+  width:min(1000px, 92vw);
+  height:min(80vh, 92vh);
+  margin:60px auto 0;
+  position:relative;
+}
+.modal .close{
+  position:absolute; top:10px; right:18px;
+  color:#fff; font-size:40px; font-weight:700;
+  cursor:pointer; line-height:1; z-index:1100;
+  text-shadow:0 0 6px rgba(0,0,0,.8);
+}
+.caption{
+  text-align:center; color:#c8ccd6; padding:10px; font-size:14px
+}
+
+/* Swiper in modal */
+.gallery-swiper{ width:100%; height:100% }
+.gallery-swiper .swiper-slide{
+  display:flex; align-items:center; justify-content:center; background:transparent
+}
+.gallery-swiper .swiper-slide img{
+  width:100%; height:100%; object-fit:contain; user-select:none; -webkit-user-drag:none
+}
+.gallery-swiper .swiper-button-prev,
+.gallery-swiper .swiper-button-next{ color:#fff; text-shadow:0 0 6px rgba(0,0,0,.8) }
+.gallery-swiper .swiper-pagination-bullet{ background:#fff; opacity:.65 }
+.gallery-swiper .swiper-pagination-bullet-active{ opacity:1 }
+
+/* ================================
+   Price Table（色分け＋モバイル自動カード）
+================================ */
+.price{ background:transparent; text-align:center }
+.price-table{ max-width:940px; margin:0 auto }
+.price-table table{
+  width:100%; border-collapse:collapse; font-size:15px; margin-bottom:16px;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden
+}
+.price-table th, .price-table td{
+  border:1px solid var(--line); padding:12px; text-align:left; color:var(--text)
+}
+.price-table th{
+  background:#111317; color:var(--accent); font-weight:800; letter-spacing:.04em
+}
+/* 平日/土日祝の色トーン差 */
+.price-table tr.weekday td{ background:#14171c }
+.price-table tr.weekend td{ background:#1d1517 }
+
+/* 注意文 */
+.price .note{ font-size:13.5px; color:var(--muted); line-height:1.7 }
+
+/* モバイル変形（カード） */
+@media (max-width:768px){
+  .price-table table, .price-table thead, .price-table tbody, .price-table th, .price-table td, .price-table tr{
+    display:block; width:100%
+  }
+  .price-table thead{ display:none }
+  .price-table tr{
+    margin-bottom:18px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px;
+    box-shadow:var(--shadow);
+  }
+  .price-table td{
+    border:none; padding:8px 10px; text-align:left
+  }
+  .price-table td:nth-child(1)::before{ content:"プラン: "; font-weight:700 }
+  .price-table td:nth-child(2)::before{ content:"曜日: "; font-weight:700 }
+  .price-table td:nth-child(3)::before{ content:"時間: "; font-weight:700 }
+  .price-table td:nth-child(4)::before{ content:"料金: "; font-weight:700 }
+}
+
+/* ================================
+   Access
+================================ */
+.access .map-placeholder{
+  background:#0f1114; width:100%; height:300px;
+  display:flex; align-items:center; justify-content:center;
+  color:#9aa3b2; border:1px solid var(--line); border-radius:10px;
+}
+
+/* ================================
+   Footer
+================================ */
+footer{
+  background:#0b0c0d; color:#8b93a3; text-align:center;
+  padding:18px; margin-top:40px; border-top:1px solid var(--line)
+}
+
+/* ================================
+   Responsive tweaks
+================================ */
+@media (max-width:600px){
+  header{ font-size:1.25rem }
+  section{ padding:52px 16px }
+  .hero-swiper{ height:54vh }
+}
+
+
+/* ================================
+   Video Section
+================================ */
+.intro-video{ background:transparent; text-align:center; }
+.intro-video h2{ margin-bottom:20px; color:var(--accent); }
+.video-wrapper{
+  position:relative; max-width:960px; margin:0 auto; aspect-ratio:16/9;
+  background:#000; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.video-wrapper video,
+.video-wrapper iframe{ width:100%; height:100%; display:block; }
+.video-note{ margin-top:10px; color:var(--muted); font-size:.9rem; }
+
+/* ================================
+   Amenities Section
+================================ */
+.amenities{ background:transparent; }
+.amenities h2{ color:var(--accent); margin-bottom:26px; }
+.amenities-list{
+  list-style:none; padding:0; margin:0 auto; max-width:1000px;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;
+}
+.amenity{
+  position:relative;
+  display:flex; align-items:center; gap:12px;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:14px 16px; box-shadow:var(--shadow);
+}
+.amenity .icon{ font-size:28px; line-height:1; }
+.amenity .text{ text-align:left; }
+.amenity .text strong{ color:#fff; display:block; }
+.amenity .text small{ color:var(--muted); display:block; margin-top:2px; font-size:.9rem; }
+.amenity .badge{
+  position:absolute; top:8px; right:10px;
+  background:rgba(230,70,70,.18); color:var(--accent);
+  border:1px solid rgba(230,70,70,.45);
+  font-size:.75rem; padding:2px 6px; border-radius:999px;
+}
+.amenity.is-provisional .text strong::after{
+  content:" ※仮"; color:var(--accent); font-weight:600; margin-left:.25em; font-size:.85em;
+}
+.amenities-note{ margin-top:10px; color:var(--muted); font-size:.9rem; }
+
+@media (max-width:600px){
+  .video-wrapper{ border-radius:10px; }
+  .amenities-list{ grid-template-columns:1fr 1fr; gap:12px; }
+}
+
+/* Access: Google Map embed responsive */
+.access .map-embed{
+  /* セクション幅いっぱい（他セクションと揃えるならmax-widthを調整） */
+  width: min(100%, 1000px);
+  margin: 12px auto 0;
+
+  /* ダークテーマの枠 */
+  background: #0f1114;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  /* ここがキモ：高さは縦横比で決定（16:9） */
+  aspect-ratio: 16 / 9;
+}
+
+/* 余計な余白を出さない＆親の比率にフィット */
+.access .map-embed iframe{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* モバイルは少し縦長（見やすい比率に） */
+@media (max-width: 600px){
+  .access .map-embed{ aspect-ratio: 4 / 3; }
+}
+
+/* ============ AMENITIES: Card layout ============ */
+.amenities h2 {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.amenity-cards {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 18px;
+}
+
+.amenity-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.amenity-icon {
+  flex: 0 0 auto;
+  color: #d9dee8;            /* アイコン色（薄いグレー） */
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+}
+
+.amenity-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.amenity-body p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .92rem;
+}
+
+/* 右上の丸い “※仮” バッジ */
+.temp-badge {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 2px 7px 1px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* スマホ微調整 */
+@media (max-width: 480px) {
+  .amenity-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  .amenity-icon { width: 32px; height: 32px; }
+  .amenity-body h3 { font-size: 1rem; }
+  .amenity-body p  { font-size: .9rem; }
+}
