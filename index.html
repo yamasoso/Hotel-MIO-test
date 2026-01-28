@@ -271,12 +271,82 @@
         <h3>※注意<br>
         設備は一部完備・レンタル・販売の場合があります</h3>
       </div>
-    </article>
-  </div>
 </section>
 
+<section class="shop-section" aria-labelledby="shop-title">
+  <h3 id="shop-title" style="text-align:center; margin-top:28px; color:var(--accent); text-transform:uppercase; letter-spacing:.12em;">物販（SHOP）</h3>
 
+  <!-- カテゴリ：飲料 -->
+  <div class="shop-category">
+    <div class="shop-category-head">
+      <button class="category-toggle" aria-expanded="true" aria-controls="cat-drinks">飲料</button>
+      <small class="category-note">ソフトドリンク/アルコール</small>
+    </div>
+    <div id="cat-drinks" class="shop-table-wrap">
+      <table class="shop-table">
+        <thead>
+          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ミネラルウォーター</td><td class="price">¥200</td></tr>
+          <tr><td>スポーツドリンク</td><td class="price">¥200</td></tr>
+          <tr><td>お茶</td><td class="price">¥200</td></tr>
+          <tr><td>アサヒスーパードライ 350ml</td><td class="price">¥350</td></tr>
+          <tr><td>アサヒスーパードライ 500ml</td><td class="price">¥500</td></tr>
+          <tr><td>ほろよい 350ml</td><td class="price">¥200</td></tr>
+          <tr><td>キリン氷結 350ml</td><td class="price">¥200</td></tr>
+          <tr><td>ストロング</td><td class="price">¥200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
+  <!-- カテゴリ：お菓子 -->
+  <div class="shop-category">
+    <div class="shop-category-head">
+      <button class="category-toggle" aria-expanded="true" aria-controls="cat-snacks">食品</button>
+      <small class="category-note">手軽なおやつ・インスタント</small>
+    </div>
+    <div id="cat-snacks" class="shop-table-wrap">
+      <table class="shop-table">
+        <thead>
+          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>カップヌードル/どん兵衛(うどん/そば)</td><td class="price">¥300</td></tr>
+          <tr><td>魚肉ソーセージ</td><td class="price">¥100</td></tr>
+          <tr><td>ポテトチップス</td><td class="price">¥200</td></tr>
+          <tr><td>じゃがりこ</td><td class="price">¥200</td></tr>
+          <tr><td>チーズ</td><td class="price">¥200</td></tr>
+          <tr><td>かわきもの</td><td class="price">¥200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- カテ���リ：アメニティ販売（初期は閉じる） -->
+  <div class="shop-category">
+    <div class="shop-category-head">
+      <button class="category-toggle" aria-expanded="false" aria-controls="cat-amenity">アメニティ販売</button>
+      <small class="category-note">歯ブラシ・カミソリ等</small>
+    </div>
+    <div id="cat-amenity" class="shop-table-wrap" hidden>
+      <table class="shop-table">
+        <thead>
+          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>レンタルコスプレ(夜間飛行/AKIBA系セーラー服/超ミニスカナース/チャイナガール)</td><td class="price">¥1,200</td></tr>
+          <tr><td>雪肌精パック(しっとりタイプ)</td><td class="price">¥350</td></tr>
+          <tr><td>ケープ(フリーアレンジ無香料)</td><td class="price">¥540</td></tr>
+          <tr><td>ヘアワックス(サロンスタイル)</td><td class="price">¥540</td></tr>
+          <tr><td>化粧水(アペンヌ)</td><td class="price">¥840</td></tr>
+          <tr><td>エピカ</td><td class="price">¥350</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
   <!-- Rooms -->
   <section>
@@ -312,6 +382,17 @@
     </div>
   </div>
 
+<section class="membership" id="membership">
+  <h2>メンバーズ会員募集</h2>
+  <div class="membership-inner">
+    <p class="membership-desc">
+      <p>価格:1000円</p>
+      <p>コンビニBOX 7番で販売してます</p>
+      <p>休憩200円引・宿泊700円引どちらも回数制限はございません</p>
+    </p>
+  </div>
+</section>
+
   <!-- Price -->
 <section class="price">
   <h2>Price</h2>
@@ -341,37 +422,26 @@
 
         <!-- サービスタイム（平日） -->
         <tr class="weekday">
-          <td rowspan="4">サービスタイム<br>（月〜金）</td>
+          <td rowspan="4">サービスタイム</td>
           <td>月〜金</td>
           <td>6:00〜12:00（6時間利用）</td>
-          <td>¥5,000</td>
+          <td>¥5,800</td>
         </tr>
         <tr class="weekday">
           <td>月〜金</td>
           <td>12:01〜18:00（5時間利用）</td>
-          <td>¥5,000</td>
-        </tr>
-        <tr class="weekday">
-          <td>月〜金</td>
-          <td>18:01〜24:00（4時間利用）</td>
-          <td>¥5,000</td>
-        </tr>
-        <tr class="weekday">
-          <td>月〜金</td>
-          <td>24:01〜翌6:00（3時間利用）</td>
-          <td>¥5,000</td>
+          <td>¥5,800</td>
         </tr>
 
         <!-- サービスタイム（土日祝） -->
         <tr class="weekend">
-          <td rowspan="2">サービスタイム<br>（土日祝）</td>
           <td>土日祝</td>
-          <td>6:00〜12:00（5時間利用）</td>
+          <td>6:00〜12:00（6時間利用）</td>
           <td>¥5,800</td>
         </tr>
         <tr class="weekend">
           <td>土日祝</td>
-          <td>12:01〜18:00（4時間利用）</td>
+          <td>12:01〜18:00（5時間利用）</td>
           <td>¥5,800</td>
         </tr>
 
@@ -392,18 +462,39 @@
         <tr>
           <td>延長</td>
           <td colspan="2">30分ごと</td>
-          <td>¥1,000</td>
+          <td>¥700</td>
         </tr>
       </tbody>
     </table>
     <p class="note">
       ※表示金額は税込です。<br>
+      ※清算はお部屋の清算機でお願いします（各種クレジット対応）<br>
+      ※清算後5分を経過しますと、料金が加算されるためご注意ください<br>
+      ※3名様でご利用の場合、1名様分の追加料金として表示価格の50%を加算いたします<br>
       正月、GW、お盆などの大型連休は別途お問い合わせ下さい。<br>
-      ※利用人数2名まで / 予約不可 / 外出可 / クレジットカード利用可
+      ※予約不可 / 外出可 /
     </p>
   </div>
 </section>
 
+<section class="shuttle" id="shuttle">
+  <h2>送迎サービス</h2>
+
+  <div class="shuttle-inner">
+    <div class="shuttle-img">
+      <!-- 画像パスは仮置きです。実際のファイルに置き換えてください -->
+      <img src="img/tesura.jpg" alt="送迎車（例：テスラ）" loading="lazy">
+      <img src="img/lexas.jpg" alt="送迎車（例：レクサス）" loading="lazy">
+    </div>
+
+    <div class="shuttle-text">
+      <p>
+        当ホテルでは近隣エリアへの送迎を承っております。送迎は要予約・時間帯による制限がある場合がございますので、
+        ご希望の方は事前にお電話にてご連絡ください。
+      </p>
+    </div>
+  </div>
+</section>
 
   <!-- Access -->
   <section class="access" id="access">
@@ -412,11 +503,9 @@
 
   <!-- この中に“1つだけ”Googleマップの iframe を入れる -->
   <div class="map-embed">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.4644077967773!2d135.3938737748399!3d33.67103713776448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007a4209e3fb22f%3A0x6a286ecb83909176!2z44Ob44OG44OrIOODn-OCqg!5e0!3m2!1sja!2sjp!4v1758523902754!5m2!1sja!2sjp" 
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
+    <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.4500047036645!2d135.39667178650816!3d33.67141019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007a5457154efc1%3A0x581ac18baa206df0!2sHOTEL%20Mio!5e0!3m2!1sja!2sjp!4v1769613851581!5m2!1sja!2sjp" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
 </section>

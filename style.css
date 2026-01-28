@@ -344,7 +344,8 @@ footer{
 
 .amenity-body p {
   margin: 0;
-  color: var(--text-muted);
+  /* 修正: 未定義の --text-muted を --muted に統一 */
+  color: var(--muted);
   font-size: .92rem;
 }
 
@@ -369,4 +370,150 @@ footer{
   .amenity-icon { width: 32px; height: 32px; }
   .amenity-body h3 { font-size: 1rem; }
   .amenity-body p  { font-size: .9rem; }
+}
+
+/* ============ Shop: カテゴリ別料金表 ============ */
+.shop-section { max-width:1000px; margin:18px auto 0; padding:8px 12px; }
+.shop-category { margin-bottom:18px; background:transparent; }
+.shop-category-head {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin:8px 0;
+}
+.category-toggle {
+  background:transparent;
+  color:var(--accent);
+  border:1px solid rgba(230,70,70,0.12);
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.category-toggle[aria-expanded="true"] { background: rgba(230,70,70,0.08); }
+.category-note { color:var(--muted); font-size:.9rem; }
+
+/* テーブル */
+.shop-table-wrap { margin-top:8px; }
+.shop-table {
+  width:100%;
+  border-collapse:collapse;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  font-size:15px;
+}
+.shop-table thead th {
+  background:#111317; color:var(--accent); font-weight:800; text-align:left; padding:10px 12px;
+}
+.shop-table td {
+  border-top:1px solid var(--line);
+  padding:10px 12px;
+  color:var(--text);
+  vertical-align:middle;
+}
+.shop-table .col-thumb img { width:64px; height:40px; object-fit:cover; border-radius:6px; }
+
+/* 価格列強調 */
+.shop-table .price { color:var(--accent); font-weight:800; }
+
+/* モバイル: テーブル→カード変形 */
+@media (max-width:768px) {
+  .shop-table, .shop-table thead, .shop-table tbody, .shop-table th, .shop-table td, .shop-table tr {
+    display:block; width:100%;
+  }
+  .shop-table thead { display:none; }
+  .shop-table tr {
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px;
+    margin-bottom:12px;
+    box-shadow:var(--shadow);
+  }
+  .shop-table td {
+    border:none; padding:6px 10px;
+  }
+  /* カード内のラベル付与 */
+  .shop-table td:nth-child(1)::before{ content:"商品: "; font-weight:700; color:var(--muted) }
+  .shop-table td:nth-child(2)::before{ content:"説明: "; font-weight:700; color:var(--muted) }
+  .shop-table td:nth-child(3)::before{ content:"価格: "; font-weight:700; color:var(--muted) }
+  .shop-table .col-thumb img { width:100%; height:140px; object-fit:cover; border-radius:8px; display:block; margin-bottom:6px; }
+}
+
+/* 折りたたみアニメーション（オプション） */
+.shop-table-wrap[hidden] { display:none; }
+
+/* ============ Shuttle / 送迎セクション（画像を横並び） ============ */
+.shuttle { padding:48px 20px; border-bottom:1px solid var(--line); background:transparent; }
+.shuttle h2 { margin:0 0 18px; text-align:center; color:var(--accent); font-size:1.6rem; text-transform:uppercase; letter-spacing:.08em; }
+
+.shuttle-inner {
+  max-width:1000px;
+  margin:0 auto;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  padding:8px 0;
+}
+
+/* ここを flex にして画像を横並びにする */
+.shuttle-img {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  /* 画像エリアの最大幅。必要に応じて調整 */
+  flex:0 0 420px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#0b0c0d;
+  box-shadow:var(--shadow);
+  padding:6px;
+}
+
+/* 各画像のサイズを指定（等しい高さで横並び） */
+.shuttle-img img {
+  width: 50%;            /* 2枚なら 50%ずつ */
+  height: 160px;        /* 固定高さにして object-fit で切り取り */
+  object-fit: cover;
+  border-radius:8px;
+  display:block;
+}
+
+/* テキストエリアは残り幅を使う */
+.shuttle-text {
+  flex:1 1 0;
+  color:var(--muted);
+  font-size:0.98rem;
+  line-height:1.6;
+}
+
+/* モバイル対応：縦並びに変更（画像は横スクロールも可） */
+@media (max-width:768px) {
+  .shuttle-inner { flex-direction:column; align-items:stretch; }
+  .shuttle-img {
+    flex:0 0 auto;
+    width:100%;
+    padding:0;
+    gap:10px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .shuttle-img img {
+    width: calc(50% - 6px); /* 横スクロール時の幅を少し小さめに */
+    height: 180px;
+    margin-right:6px;
+    flex:0 0 auto;
+  }
+  .shuttle-text { padding-top:12px; }
+}
+
+/* ============ Membership / メンバーズ会員募集 ============ */
+.membership { padding:48px 20px; border-bottom:1px solid var(--line); background:transparent; }
+.membership h2 { margin:0 0 18px; text-align:center; color:var(--accent); font-size:1.6rem; text-transform:uppercase; letter-spacing:.08em; }
+.membership-inner { max-width:900px; margin:0 auto; text-align:center; }
+.membership-desc { color:var(--muted); font-size:1rem; line-height:1.8; margin:0 auto; }
+@media (max-width:768px) {
+  .membership { padding:36px 16px; }
+  .membership-desc { font-size:0.98rem; }
 }
