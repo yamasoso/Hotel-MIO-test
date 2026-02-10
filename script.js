@@ -145,4 +145,43 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+// price-table の各 td に data-label を付与（rowspan/colspan に対応）
+// DOMContentLoaded 内に入れるか、ファイル末尾に直接追加してください。
+(function normalizeTableLabels(){
+  const tables = document.querySelectorAll('.price-table table');
+  if (!tables.length) return;
+
+  tables.forEach(table => {
+    const headers = Array.from(table.querySelectorAll('thead th')).map(h => h.textContent.trim());
+    const tbodyRows = Array.from(table.querySelectorAll('tbody tr'));
+    const occupied = new Array(headers.length).fill(0); // rowspan 残り行数トラッカー
+
+    tbodyRows.forEach(row => {
+      const cells = Array.from(row.children).filter(n => n.tagName.toLowerCase() === 'td' || n.tagName.toLowerCase() === 'th');
+      let cellIdx = 0;
+      for (let colIndex = 0; colIndex < headers.length; ) {
+        // 前行の rowspan のためスキップする列があれば処理
+        while (colIndex < headers.length && occupied[colIndex] > 0) {
+          occupied[colIndex]--;
+          colIndex++;
+        }
+        if (colIndex >= headers.length) break;
+        const cell = cells[cellIdx++];
+        if (!cell) break;
+        const colspan = parseInt(cell.getAttribute('colspan') || 1, 10);
+        const rowspan = parseInt(cell.getAttribute('rowspan') || 1, 10);
+        // ヘッダが複数にまたがる場合は結合してラベルにする
+        const label = headers.slice(colIndex, colIndex + colspan).join(' / ');
+        cell.setAttribute('data-label', label + ':');
+        // rowspan があれば次の行でも対応列をスキップするようにマーク
+        if (rowspan > 1) {
+          for (let k = 0; k < colspan; k++) {
+            occupied[colIndex + k] = rowspan - 1;
+          }
+        }
+        colIndex += colspan;
+      }
+    });
+  });
 })();

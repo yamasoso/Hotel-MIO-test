@@ -194,10 +194,22 @@ section h2{
   .price-table td{
     border:none; padding:8px 10px; text-align:left
   }
+  /*
   .price-table td:nth-child(1)::before{ content:"プラン: "; font-weight:700 }
   .price-table td:nth-child(2)::before{ content:"曜日: "; font-weight:700 }
   .price-table td:nth-child(3)::before{ content:"時間: "; font-weight:700 }
   .price-table td:nth-child(4)::before{ content:"料金: "; font-weight:700 }
+*/
+/* モバイル用ラベル表示：nth-child ベースをやめて data-label を使う */
+/* （@media (max-width:768px) 内に挿入してください） */
+.price-table td::before{
+  content: attr(data-label);
+  font-weight:700;
+  color: var(--muted);
+  display:inline-block;
+  margin-right:6px;
+  min-width:4.2em; /* 見出し幅の目安、必要に応じて調整 */
+}
 }
 
 /* ================================
