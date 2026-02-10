@@ -113,7 +113,6 @@ section h2{
 
 /* ================================
    Gallery Modal (Swiper inside)
-   ※ HTML/JS は前回のまま
 ================================ */
 .modal{
   display:none; position:fixed; inset:0; z-index:1000;
@@ -131,6 +130,13 @@ section h2{
   color:#fff; font-size:40px; font-weight:700;
   cursor:pointer; line-height:1; z-index:1100;
   text-shadow:0 0 6px rgba(0,0,0,.8);
+  background:transparent; border:0;
+  padding:4px 8px;
+  border-radius:6px;
+}
+.modal .close:focus{
+  outline: 3px solid rgba(230,70,70,0.18);
+  outline-offset:2px;
 }
 .caption{
   text-align:center; color:#c8ccd6; padding:10px; font-size:14px
@@ -197,10 +203,32 @@ section h2{
 /* ================================
    Access
 ================================ */
-.access .map-placeholder{
-  background:#0f1114; width:100%; height:300px;
-  display:flex; align-items:center; justify-content:center;
-  color:#9aa3b2; border:1px solid var(--line); border-radius:10px;
+/* Access: 親幅いっぱい表示（セクションの左右パディング内で横幅いっぱい） */
+.access .map-embed{
+  width: 100%;
+  max-width: none;      /* 制限を外す */
+  margin: 12px auto 0;  /* 上マージンは維持、左右は中央寄せ（パディングの内側） */
+  background: #0f1114;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  /* 高さは縦横比で決める（必要なら px 指定に変えてください） */
+  aspect-ratio: 16 / 9;
+}
+
+/* iframe を親にフィットさせる（既存の width/height 属性があっても上書きします） */
+.access .map-embed iframe{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  border:0;
+}
+
+/* モバイル調整：少し縦長に */
+@media (max-width: 600px){
+  .access .map-embed{ aspect-ratio: 4 / 3; }
 }
 
 /* ================================
@@ -219,7 +247,6 @@ footer{
   section{ padding:52px 16px }
   .hero-swiper{ height:54vh }
 }
-
 
 /* ================================
    Video Section
@@ -270,36 +297,6 @@ footer{
   .amenities-list{ grid-template-columns:1fr 1fr; gap:12px; }
 }
 
-/* Access: Google Map embed responsive */
-.access .map-embed{
-  /* セクション幅いっぱい（他セクションと揃えるならmax-widthを調整） */
-  width: min(100%, 1000px);
-  margin: 12px auto 0;
-
-  /* ダークテーマの枠 */
-  background: #0f1114;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-
-  /* ここがキモ：高さは縦横比で決定（16:9） */
-  aspect-ratio: 16 / 9;
-}
-
-/* 余計な余白を出さない＆親の比率にフィット */
-.access .map-embed iframe{
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* モバイルは少し縦長（見やすい比率に） */
-@media (max-width: 600px){
-  .access .map-embed{ aspect-ratio: 4 / 3; }
-}
-
 /* ============ AMENITIES: Card layout ============ */
 .amenities h2 {
   letter-spacing: .12em;
@@ -344,7 +341,6 @@ footer{
 
 .amenity-body p {
   margin: 0;
-  /* 修正: 未定義の --text-muted を --muted に統一 */
   color: var(--muted);
   font-size: .92rem;
 }
@@ -411,7 +407,6 @@ footer{
   color:var(--text);
   vertical-align:middle;
 }
-.shop-table .col-thumb img { width:64px; height:40px; object-fit:cover; border-radius:6px; }
 
 /* 価格列強調 */
 .shop-table .price { color:var(--accent); font-weight:800; }
@@ -435,9 +430,7 @@ footer{
   }
   /* カード内のラベル付与 */
   .shop-table td:nth-child(1)::before{ content:"商品: "; font-weight:700; color:var(--muted) }
-  .shop-table td:nth-child(2)::before{ content:"説明: "; font-weight:700; color:var(--muted) }
-  .shop-table td:nth-child(3)::before{ content:"価格: "; font-weight:700; color:var(--muted) }
-  .shop-table .col-thumb img { width:100%; height:140px; object-fit:cover; border-radius:8px; display:block; margin-bottom:6px; }
+  .shop-table td:nth-child(2)::before{ content:"価格: "; font-weight:700; color:var(--muted) }
 }
 
 /* 折りたたみアニメーション（オプション） */
@@ -462,7 +455,6 @@ footer{
   display:flex;
   gap:12px;
   align-items:center;
-  /* 画像エリアの最大幅。必要に応じて調整 */
   flex:0 0 420px;
   border-radius:10px;
   overflow:hidden;
@@ -473,8 +465,8 @@ footer{
 
 /* 各画像のサイズを指定（等しい高さで横並び） */
 .shuttle-img img {
-  width: 50%;            /* 2枚なら 50%ずつ */
-  height: 160px;        /* 固定高さにして object-fit で切り取り */
+  width: 50%;
+  height: 160px;
   object-fit: cover;
   border-radius:8px;
   display:block;
@@ -500,7 +492,7 @@ footer{
     -webkit-overflow-scrolling:touch;
   }
   .shuttle-img img {
-    width: calc(50% - 6px); /* 横スクロール時の幅を少し小さめに */
+    width: calc(50% - 6px);
     height: 180px;
     margin-right:6px;
     flex:0 0 auto;
@@ -512,8 +504,59 @@ footer{
 .membership { padding:48px 20px; border-bottom:1px solid var(--line); background:transparent; }
 .membership h2 { margin:0 0 18px; text-align:center; color:var(--accent); font-size:1.6rem; text-transform:uppercase; letter-spacing:.08em; }
 .membership-inner { max-width:900px; margin:0 auto; text-align:center; }
-.membership-desc { color:var(--muted); font-size:1rem; line-height:1.8; margin:0 auto; }
+.membership-desc { color:var(--muted); font-size:1rem; line-height:1.8; margin:8px 0 0; }
 @media (max-width:768px) {
   .membership { padding:36px 16px; }
   .membership-desc { font-size:0.98rem; }
+}
+
+/* ============ AMENITIES: 強調（is-featured） ============ */
+.amenity-card.is-featured {
+  border-color: var(--accent);
+  box-shadow: 0 18px 40px rgba(230,70,70,0.08);
+  transform: translateY(-2px);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s;
+}
+
+/* ホバー時にさらに強調 */
+.amenity-card.is-featured:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(230,70,70,0.14);
+}
+
+/* 右上のバッジ */
+.feature-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: linear-gradient(180deg, var(--accent), #c33a3a);
+  color: #fff;
+  font-weight: 800;
+  font-size: .75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(230,70,70,0.12);
+  pointer-events: none;
+  transform-origin: center;
+  animation: feature-pulse 2.6s ease-in-out infinite;
+}
+
+/* 見出しの微強調 */
+.amenity-card.is-featured .amenity-body h3 {
+  color: #fff;
+  font-size: 1.08rem;
+  letter-spacing: .005em;
+}
+
+/* 補助説明の色 */
+.amenity-card.is-featured .amenity-sub {
+  color: var(--muted);
+  opacity: .95;
+}
+
+/* ゆるいパルスアニメーション（バッジ） */
+@keyframes feature-pulse {
+  0%   { transform: scale(1); opacity:1; }
+  50%  { transform: scale(1.02); opacity:.9; }
+  100% { transform: scale(1); opacity:1; }
 }

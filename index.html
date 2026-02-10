@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =========================
@@ -71,288 +71,134 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="img/outside.jpg"  alt="外観1"></div>
       <div class="swiper-slide"><img src="img/outside2.jpg" loading="lazy" alt="外観2"></div>
-      <div class="swiper-slide"><img src="img/karaoke1.jpg" loading="lazy" alt="カラオケ1"></div>
-      <div class="swiper-slide"><img src="img/karaoke2.jpg" loading="lazy" alt="カラオケ2"></div>
+      <div class="swiper-slide"><img src="img/outside3.jpg" loading="lazy" alt="外観3"></div>
     </div>
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
 
-<!-- === Video Section: Heroの直下に配置 === -->
-<section id="video" class="intro-video">
-  <h2>Hotel Introduction</h2>
-  <div class="video-wrapper">
-    <!-- ローカルMP4を使う場合（推奨） -->
-    <video controls preload="metadata" muted playsinline poster="img/video-poster.jpg">
-      <source src="vid/intro.mp4" type="video/mp4" />
-      お使いのブラウザは動画再生に対応していません。
-    </video>
+  <!-- === Video Section: Heroの直下に配置 === -->
+  <section id="video" class="intro-video">
+    <h2>Hotel Introduction</h2>
+    <div class="video-wrapper">
+      <video controls preload="metadata" muted playsinline poster="img/video-poster.jpg">
+        <source src="vid/intro.mp4" type="video/mp4" />
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+    </div>
+    <p class="video-note">※外観紹介ムービー（音量にご注意ください）</p>
+  </section>
 
-  </div>
-  <p class="video-note">※外観紹介ムービー（音量にご注意ください）</p>
-</section>
+  <!-- ここから並びを変更: Price → Shuttle → Rooms -->
 
-  <!-- Concept -->
-  <section class="concept">
-    <h2>Concept</h2>
-    <div class="concept-grid">
-      <div class="concept-item">
-        <span class="icon">🚗</span>
-        <h3>駐車場完備</h3>
-        <p>全12台分の駐車スペース（ハイルーフ対応可）</p>
-      </div>
-      <div class="concept-item">
-        <span class="icon">📶</span>
-        <h3>Wi-Fi完備</h3>
-        <p>全室で快適インターネット接続</p>
-      </div>
-      <div class="concept-item">
-        <span class="icon">🎥</span>
-        <h3>VOD無料</h3>
-        <p>映画・ドラマが見放題</p>
-      </div>
-      <div class="concept-item">
-        <span class="icon">🛏️</span>
-        <h3>プライベート空間</h3>
-        <p>全12室の落ち着いた客室でリラックス</p>
-      </div>
+  <!-- Price -->
+  <section class="price">
+    <h2>Price</h2>
+    <div class="price-table">
+      <table>
+        <thead>
+          <tr>
+            <th>プラン</th>
+            <th>曜日</th>
+            <th>時間</th>
+            <th>料金</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 休憩 -->
+          <tr class="weekday">
+            <td rowspan="2">休憩</td>
+            <td>月〜金</td>
+            <td>6:00〜24:00（最大1時間）</td>
+            <td>¥3,400</td>
+          </tr>
+          <tr class="weekend">
+            <td>土日祝</td>
+            <td>6:00〜24:00（最大1時間）</td>
+            <td>¥3,900</td>
+          </tr>
+
+          <!-- サービスタイム（平日） -->
+          <tr class="weekday">
+            <td rowspan="4">サービスタイム</td>
+            <td>月〜金</td>
+            <td>6:00〜12:00（6時間利用）</td>
+            <td>¥5,800</td>
+          </tr>
+          <tr class="weekday">
+            <td>月〜金</td>
+            <td>12:01〜18:00（5時間利用）</td>
+            <td>¥5,800</td>
+          </tr>
+
+          <!-- サービスタイム（土日祝） -->
+          <tr class="weekend">
+            <td>土日祝</td>
+            <td>6:00〜12:00（6時間利用）</td>
+            <td>¥5,800</td>
+          </tr>
+          <tr class="weekend">
+            <td>土日祝</td>
+            <td>12:01〜18:00（5時間利用）</td>
+            <td>¥5,800</td>
+          </tr>
+
+          <!-- 宿泊 -->
+          <tr class="weekday">
+            <td rowspan="2">宿泊</td>
+            <td>日〜木</td>
+            <td>20:00〜翌10:00（最大14時間）</td>
+            <td>¥7,000</td>
+          </tr>
+          <tr class="weekend">
+            <td>金・土・祝前</td>
+            <td>21:00〜翌10:00（最大13時間）</td>
+            <td>¥8,000</td>
+          </tr>
+
+          <!-- 延長 -->
+          <tr>
+            <td>延長</td>
+            <td colspan="2">30分ごと</td>
+            <td>¥700</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        ※表示金額は税込です。<br>
+        ※清算はお部屋の清算機でお願いします（各種クレジット対応）<br>
+        ※清算後5分を経過しますと、料金が加算されるためご注意ください<br>
+        ※3名様でご利用の場合、1名様分の追加料金として表示価格より50%を加算いたします<br>
+        正月、GW、お盆などの大型連休は別途お問い合わせ下さい。<br>
+        ※予約可 / 外出可 /
+      </p>
     </div>
   </section>
 
-<section class="amenities" id="amenities">
-  <h2>AMENITIES</h2>
+  <!-- Shuttle (送迎) -->
+  <section class="shuttle" id="shuttle">
+    <h2>送迎サービス</h2>
 
-  <div class="amenity-cards">
-    <!-- テレビ -->
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- TV -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="11" rx="1.5"/><path d="M8 20h8"/></svg>
+    <div class="shuttle-inner">
+      <div class="shuttle-img">
+        <img src="img/tesura.jpg" alt="送迎車（例：テスラ）" loading="lazy">
+        <img src="img/lexas.jpg" alt="送迎車（例：レクサス）" loading="lazy">
       </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">テレビ</span>
-        <h3>42インチ以上大型TV（一部）</h3>
-      </div>
-    </article>
 
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- TV（流用） -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="11" rx="1.5"/><path d="M8 20h8"/></svg>
+      <div class="shuttle-text">
+        <p>
+          当ホテルでは近隣エリアへの送迎を承っております。送迎は要予約・時間帯による制限がある場合がございますので、
+          ご希望の方は事前にお電話にてご連絡ください。
+        </p>
       </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">テレビ</span>
-        <h3>持込用DVDデッキ</h3>
-      </div>
-    </article>
-
-    <!-- アミューズメント（スクショ＋追加設備） -->
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Chair-ish -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 13h10a2 2 0 0 1 2 2v5H5v-5a2 2 0 0 1 2-2z"/><path d="M7 10v3M17 10v3"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>マッサージチェア（一部）</h3>
-          <p class="amenity-note">※スロットマシーン</p>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Controller -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r="1"/><path d="M6 12h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>TVゲーム（レンタル）</h3>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Broadcast waves -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V4"/><path d="M8 8a7 7 0 0 1 0 8"/><path d="M16 8a7 7 0 0 0 0 8"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>有線放送</h3>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Wi-Fi -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12a9 9 0 0 1 14 0"/><path d="M8 15a5 5 0 0 1 8 0"/><circle cx="12" cy="18" r="1.6"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>無料Wi-Fi（無線LAN）</h3>
-      </div>
-    </article>
-
-    <!-- 追加設備 -->
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Film -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M8 5v14M16 5v14M3 9h5M16 9h5M3 15h5M16 15h5"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>全室映画無料</h3>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Mic -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 0 1 3 3v4a3 3 0 1 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M12 14v4"/><path d="M9 21h6"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>カラオケ無料</h3>
-        <p class="amenity-sub">対象：1号室・8号室のみ</p>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Wi-Fi（フリーWi-Fi） -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12a9 9 0 0 1 14 0"/><path d="M8 15a5 5 0 0 1 8 0"/><circle cx="12" cy="18" r="1.6"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>フリーWi-Fi</h3>
-      </div>
-    </article>
-
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Controller -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r="1"/><path d="M6 12h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">アミューズメント</span>
-        <h3>ファミコン / スーパーファミコン無料</h3>
-        <p class="amenity-sub">対象：2号室・3号室のみ</p>
-      </div>
-    </article>
-
-    <!-- お部屋 -->
-    <article class="amenity-card">
-      <div class="amenity-icon" aria-hidden="true">
-        <!-- Room -->
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="10" rx="2"/><path d="M8 7v10M16 7v10"/></svg>
-      </div>
-      <div class="amenity-body">
-        <span class="amenity-tag">お部屋</span>
-        <h3>和室（一部）</h3>
-      </div>
-    </article>
-
-    <!-- 設備 -->
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6M15 5h-6"/><rect x="4" y="10" width="16" height="10" rx="1.5"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>電子レンジ</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 6h10v12H7z"/><path d="M10 10h4"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>電気ポット</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M18 8h2v8h-2"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>持込用冷蔵庫</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 12a6 6 0 0 1 12 0"/><path d="M12 12v8"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>加湿器（一部）</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>シャワートイレ</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4l10 16"/><path d="M17 4L7 20"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>くるくるドライヤー</h3></div></article>
-
-    <article class="amenity-card"><div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div class="amenity-body"><span class="amenity-tag">設備</span><h3>各種シャンプー（レンタル）</h3></div></article>
-
-
-        <h3>※注意<br>
-        設備は一部完備・レンタル・販売の場合があります</h3>
-      </div>
-</section>
-
-<section class="shop-section" aria-labelledby="shop-title">
-  <h3 id="shop-title" style="text-align:center; margin-top:28px; color:var(--accent); text-transform:uppercase; letter-spacing:.12em;">物販（SHOP）</h3>
-
-  <!-- カテゴリ：飲料 -->
-  <div class="shop-category">
-    <div class="shop-category-head">
-      <button class="category-toggle" aria-expanded="true" aria-controls="cat-drinks">飲料</button>
-      <small class="category-note">ソフトドリンク/アルコール</small>
     </div>
-    <div id="cat-drinks" class="shop-table-wrap">
-      <table class="shop-table">
-        <thead>
-          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ミネラルウォーター</td><td class="price">¥200</td></tr>
-          <tr><td>スポーツドリンク</td><td class="price">¥200</td></tr>
-          <tr><td>お茶</td><td class="price">¥200</td></tr>
-          <tr><td>アサヒスーパードライ 350ml</td><td class="price">¥350</td></tr>
-          <tr><td>アサヒスーパードライ 500ml</td><td class="price">¥500</td></tr>
-          <tr><td>ほろよい 350ml</td><td class="price">¥200</td></tr>
-          <tr><td>キリン氷結 350ml</td><td class="price">¥200</td></tr>
-          <tr><td>ストロング</td><td class="price">¥200</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- カテゴリ：お菓子 -->
-  <div class="shop-category">
-    <div class="shop-category-head">
-      <button class="category-toggle" aria-expanded="true" aria-controls="cat-snacks">食品</button>
-      <small class="category-note">手軽なおやつ・インスタント</small>
-    </div>
-    <div id="cat-snacks" class="shop-table-wrap">
-      <table class="shop-table">
-        <thead>
-          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>カップヌードル/どん兵衛(うどん/そば)</td><td class="price">¥300</td></tr>
-          <tr><td>魚肉ソーセージ</td><td class="price">¥100</td></tr>
-          <tr><td>ポテトチップス</td><td class="price">¥200</td></tr>
-          <tr><td>じゃがりこ</td><td class="price">¥200</td></tr>
-          <tr><td>チーズ</td><td class="price">¥200</td></tr>
-          <tr><td>かわきもの</td><td class="price">¥200</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- カテ���リ：アメニティ販売（初期は閉じる） -->
-  <div class="shop-category">
-    <div class="shop-category-head">
-      <button class="category-toggle" aria-expanded="false" aria-controls="cat-amenity">アメニティ販売</button>
-      <small class="category-note">歯ブラシ・カミソリ等</small>
-    </div>
-    <div id="cat-amenity" class="shop-table-wrap" hidden>
-      <table class="shop-table">
-        <thead>
-          <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>レンタルコスプレ(夜間飛行/AKIBA系セーラー服/超ミニスカナース/チャイナガール)</td><td class="price">¥1,200</td></tr>
-          <tr><td>雪肌精パック(しっとりタイプ)</td><td class="price">¥350</td></tr>
-          <tr><td>ケープ(フリーアレンジ無香料)</td><td class="price">¥540</td></tr>
-          <tr><td>ヘアワックス(サロンスタイル)</td><td class="price">¥540</td></tr>
-          <tr><td>化粧水(アペンヌ)</td><td class="price">¥840</td></tr>
-          <tr><td>エピカ</td><td class="price">¥350</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Rooms -->
   <section>
     <h2>Rooms</h2>
     <div class="rooms-grid">
-      <!-- 必要なら data-large で拡大用の高解像度画像を指定できるよ -->
       <div class="room"><img src="img/room1.jpg" loading="lazy" data-large="img/room1.jpg" alt="Room 001"><p>Room 001</p></div>
       <div class="room"><img src="img/room2.jpg" loading="lazy" data-large="img/room2.jpg" alt="Room 002"><p>Room 002</p></div>
       <div class="room"><img src="img/room3.jpg" loading="lazy" data-large="img/room3.jpg" alt="Room 003"><p>Room 003</p></div>
@@ -368,9 +214,243 @@
     </div>
   </section>
 
+  <!-- 以下は現状の並び（Concept → Amenities → Shop → Gallery Modal → Membership → Access → Footer） -->
+
+  <!-- Concept -->
+  <section class="concept">
+    <h2>Concept</h2>
+    <div class="concept-grid">
+      <div class="concept-item">
+        <span class="icon" aria-hidden="true">🚗</span>
+        <h3>駐車場完備</h3>
+        <p>全12台分の駐車スペース（ハイルーフ対応可）</p>
+      </div>
+      <div class="concept-item">
+        <span class="icon" aria-hidden="true">📶</span>
+        <h3>Wi-Fi完備</h3>
+        <p>※通信状況により繋がりにくい場合がございます。ご了承ください</p>
+      </div>
+      <div class="concept-item">
+        <span class="icon" aria-hidden="true">🎥</span>
+        <h3>VOD無料</h3>
+        <p>映画・ドラマが見放題</p>
+      </div>
+      <div class="concept-item">
+        <span class="icon" aria-hidden="true">🛏️</span>
+        <h3>プライベート空間</h3>
+        <p>全12室の落ち着いた客室でリラックス</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities (元の項目をすべて復元) -->
+  <section class="amenities" id="amenities">
+    <h2>AMENITIES</h2>
+
+    <div class="amenity-cards">
+      <!-- テレビ -->
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- TV -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="11" rx="1.5"/><path d="M8 20h8"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">テレビ</span>
+          <h3>42インチ以上大型TV（一部）</h3>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- TV（流用） -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="11" rx="1.5"/><path d="M8 20h8"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">テレビ</span>
+          <h3>持込用DVDデッキ</h3>
+        </div>
+      </article>
+
+      <!-- アミューズメント（スクショ＋追加設備） -->
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Chair-ish -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 13h10a2 2 0 0 1 2 2v5H5v-5a2 2 0 0 1 2-2z"/><path d="M7 10v3M17 10v3"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>マッサージチェア（一部）</h3>
+          <p class="amenity-note">※スロットマシーン</p>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Controller -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r="1"/><path d="M6 12h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>TVゲーム（レンタル）</h3>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Broadcast waves -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V4"/><path d="M8 8a7 7 0 0 1 0 8"/><path d="M16 8a7 7 0 0 0 0 8"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>有線放送</h3>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Wi-Fi -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12a9 9 0 0 1 14 0"/><path d="M8 15a5 5 0 0 1 8 0"/><circle cx="12" cy="18" r="1.6"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>無料Wi-Fi（無線LAN）</h3>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Film -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M8 5v14M16 5v14M3 9h5M16 9h5M3 15h5M16 15h5"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>全室映画無料</h3>
+        </div>
+      </article>
+
+      <!-- Replace the existing カラオケ無料 article with this -->
+<article class="amenity-card is-featured">
+  <span class="feature-badge" aria-hidden="true">注目</span>
+  <div class="amenity-icon" aria-hidden="true">
+    <!-- Mic -->
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a3 3 0 0 1 3 3v4a3 3 0 1 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M12 14v4"/><path d="M9 21h6"/></svg>
+  </div>
+  <div class="amenity-body">
+    <span class="amenity-tag">アミューズメント</span>
+    <h3>カラオケ無料</h3>
+    <p class="amenity-sub">対象：1号室・8号室のみ</p>
+  </div>
+</article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Wi-Fi（フリーWi-Fi） -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12a9 9 0 0 1 14 0"/><path d="M8 15a5 5 0 0 1 8 0"/><circle cx="12" cy="18" r="1.6"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">アミューズメント</span>
+          <h3>フリーWi-Fi</h3>
+        </div>
+      </article>
+
+<!-- Replace the existing ファミコン / スーファミ無料 article with this -->
+<article class="amenity-card is-featured">
+  <span class="feature-badge" aria-hidden="true">注目</span>
+  <div class="amenity-icon" aria-hidden="true">
+    <!-- Controller -->
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r="1"/><path d="M6 12h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg>
+  </div>
+  <div class="amenity-body">
+    <span class="amenity-tag">アミューズメント</span>
+    <h3>ファミコン / スーパーファミコン無料</h3>
+    <p class="amenity-sub">対象：2号室・3号室のみ</p>
+  </div>
+</article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true">
+          <!-- Room -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="10" rx="2"/><path d="M8 7v10M16 7v10"/></svg>
+        </div>
+        <div class="amenity-body">
+          <span class="amenity-tag">お部屋</span>
+          <h3>和室（一部）</h3>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6M15 5h-6"/><rect x="4" y="10" width="16" height="10" rx="1.5"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>電子レンジ</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 6h10v12H7z"/><path d="M10 10h4"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>電気ポット</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M18 8h2v8h-2"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>持込用冷蔵庫</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 12a6 6 0 0 1 12 0"/><path d="M12 12v8"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>加湿器（一部）</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>シャワートイレ</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 4l10 16"/><path d="M17 4L7 20"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>くるくるドライヤー</h3></div>
+      </article>
+
+      <article class="amenity-card">
+        <div class="amenity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <div class="amenity-body"><span class="amenity-tag">設備</span><h3>各種シャンプー（レンタル）</h3></div>
+      </article>
+    </div> <!-- /.amenity-cards -->
+
+    <p class="amenities-note">※注意：設備は一部完備・レンタル・販売の場合があります</p>
+  </section>
+
+  <!-- Shop (物販) -->
+  <section class="shop-section" aria-labelledby="shop-title">
+    <h3 id="shop-title" style="text-align:center; margin-top:28px; color:var(--accent); text-transform:uppercase; letter-spacing:.12em;">物販（SHOP）</h3>
+
+    <!-- 既存の shop-category ブロック（省略可） -->
+    <div class="shop-category">
+      <div class="shop-category-head">
+        <button class="category-toggle" aria-expanded="true" aria-controls="cat-drinks">飲料</button>
+        <small class="category-note">ソフトドリンク/アルコール</small>
+      </div>
+      <div id="cat-drinks" class="shop-table-wrap">
+        <table class="shop-table">
+          <thead>
+            <tr><th scope="col">商品</th><th scope="col">価格</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ミネラルウォーター</td><td class="price">¥200</td></tr>
+            <tr><td>スポーツドリンク</td><td class="price">¥200</td></tr>
+            <tr><td>お茶</td><td class="price">¥200</td></tr>
+            <tr><td>アサヒスーパードライ 350ml</td><td class="price">¥350</td></tr>
+            <tr><td>アサヒスーパードライ 500ml</td><td class="price">¥500</td></tr>
+            <tr><td>ほろよい 350ml</td><td class="price">¥200</td></tr>
+            <tr><td>キリン氷結 350ml</td><td class="price">¥200</td></tr>
+            <tr><td>ストロング</td><td class="price">¥200</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- （他カテゴリは省略） -->
+  </section>
+
   <!-- Gallery Modal (Swiper inside) -->
-  <div id="galleryModal" class="modal" aria-hidden="true">
-    <span class="close" aria-label="閉じる">&times;</span>
+  <div id="galleryModal" class="modal" aria-hidden="true" tabindex="-1">
+    <button class="close" aria-label="閉じる" type="button">&times;</button>
     <div class="modal-inner">
       <div class="swiper gallery-swiper">
         <div class="swiper-wrapper"><!-- JSでサムネから自動生成 --></div>
@@ -382,133 +462,28 @@
     </div>
   </div>
 
-<section class="membership" id="membership">
-  <h2>メンバーズ会員募集</h2>
-  <div class="membership-inner">
-    <p class="membership-desc">
-      <p>価格:1000円</p>
-      <p>コンビニBOX 7番で販売してます</p>
-      <p>休憩200円引・宿泊700円引どちらも回数制限はございません</p>
-    </p>
-  </div>
-</section>
-
-  <!-- Price -->
-<section class="price">
-  <h2>Price</h2>
-  <div class="price-table">
-    <table>
-      <thead>
-        <tr>
-          <th>プラン</th>
-          <th>曜日</th>
-          <th>時間</th>
-          <th>料金</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- 休憩 -->
-        <tr class="weekday">
-          <td rowspan="2">休憩</td>
-          <td>月〜金</td>
-          <td>6:00〜24:00（最大1時間）</td>
-          <td>¥3,400</td>
-        </tr>
-        <tr class="weekend">
-          <td>土日祝</td>
-          <td>6:00〜24:00（最大1時間）</td>
-          <td>¥3,900</td>
-        </tr>
-
-        <!-- サービスタイム（平日） -->
-        <tr class="weekday">
-          <td rowspan="4">サービスタイム</td>
-          <td>月〜金</td>
-          <td>6:00〜12:00（6時間利用）</td>
-          <td>¥5,800</td>
-        </tr>
-        <tr class="weekday">
-          <td>月〜金</td>
-          <td>12:01〜18:00（5時間利用）</td>
-          <td>¥5,800</td>
-        </tr>
-
-        <!-- サービスタイム（土日祝） -->
-        <tr class="weekend">
-          <td>土日祝</td>
-          <td>6:00〜12:00（6時間利用）</td>
-          <td>¥5,800</td>
-        </tr>
-        <tr class="weekend">
-          <td>土日祝</td>
-          <td>12:01〜18:00（5時間利用）</td>
-          <td>¥5,800</td>
-        </tr>
-
-        <!-- 宿泊 -->
-        <tr class="weekday">
-          <td rowspan="2">宿泊</td>
-          <td>日〜木</td>
-          <td>20:00〜翌10:00（最大14時間）</td>
-          <td>¥7,000</td>
-        </tr>
-        <tr class="weekend">
-          <td>金・土・祝前</td>
-          <td>21:00〜翌10:00（最大13時間）</td>
-          <td>¥8,000</td>
-        </tr>
-
-        <!-- 延長 -->
-        <tr>
-          <td>延長</td>
-          <td colspan="2">30分ごと</td>
-          <td>¥700</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="note">
-      ※表示金額は税込です。<br>
-      ※清算はお部屋の清算機でお願いします（各種クレジット対応）<br>
-      ※清算後5分を経過しますと、料金が加算されるためご注意ください<br>
-      ※3名様でご利用の場合、1名様分の追加料金として表示価格の50%を加算いたします<br>
-      正月、GW、お盆などの大型連休は別途お問い合わせ下さい。<br>
-      ※予約不可 / 外出可 /
-    </p>
-  </div>
-</section>
-
-<section class="shuttle" id="shuttle">
-  <h2>送迎サービス</h2>
-
-  <div class="shuttle-inner">
-    <div class="shuttle-img">
-      <!-- 画像パスは仮置きです。実際のファイルに置き換えてください -->
-      <img src="img/tesura.jpg" alt="送迎車（例：テスラ）" loading="lazy">
-      <img src="img/lexas.jpg" alt="送迎車（例：レクサス）" loading="lazy">
+  <!-- Membership -->
+  <section class="membership" id="membership">
+    <h2>メンバーズ会員募集</h2>
+    <div class="membership-inner">
+      <p class="membership-desc">価格: ¥1,000</p>
+      <p class="membership-desc">コンビニBOX 7番で販売しています。</p>
+      <p class="membership-desc">特典：休憩 ¥200引、宿泊 ¥700引（回数制限なし）</p>
     </div>
-
-    <div class="shuttle-text">
-      <p>
-        当ホテルでは近隣エリアへの送迎を承っております。送迎は要予約・時間帯による制限がある場合がございますので、
-        ご希望の方は事前にお電話にてご連絡ください。
-      </p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Access -->
   <section class="access" id="access">
-  <h2>Access</h2>
-  <p class="center">〒649-2201 和歌山県西牟婁郡白浜町平160-2</p>
+    <h2>Access</h2>
+    <p class="center">〒649-2201 和歌山県西牟婁郡白浜町平160-2</p>
 
-  <!-- この中に“1つだけ”Googleマップの iframe を入れる -->
-  <div class="map-embed">
-    <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.4500047036645!2d135.39667178650816!3d33.67141019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007a5457154efc1%3A0x581ac18baa206df0!2sHOTEL%20Mio!5e0!3m2!1sja!2sjp!4v1769613851581!5m2!1sja!2sjp" 
-    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
+    <div class="map-embed">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.4500047036645!2d135.39667178650816!3d33.67141019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007a5457154efc1%3A0x581ac18baa206df0!2sHOTEL%20Mio!5e0!3m2!1sja!2sjp!4v1769613851581!5m2!1sja!2sjp" 
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
 
   <footer>© HOTEL MIO — All Rights Reserved.</footer>
 
