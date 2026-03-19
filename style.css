@@ -59,7 +59,7 @@ section h2{ margin:0 0 28px; text-align:center; font-size:1.9rem; letter-spacing
 .modal .close{ position:absolute; top:10px; right:18px; color:#fff; font-size:40px; font-weight:700; cursor:pointer; background:transparent; border:0; padding:4px 8px; border-radius:6px; text-shadow:0 0 6px rgba(0,0,0,.8); }
 .caption{ text-align:center; color:#c8ccd6; padding:10px; font-size:14px; }
 
-/* Video wrapper: centered in section, responsive */
+/* Video wrapper: centered in section, responsive (non-fixed) */
 .video-wrapper{
   margin:0 auto;
   max-width:960px;
@@ -74,27 +74,87 @@ section h2{ margin:0 0 28px; text-align:center; font-size:1.9rem; letter-spacing
 .video-wrapper video, .video-wrapper iframe{ width:100%; height:100%; display:block; }
 .video-note{ margin-top:10px; color:var(--muted); font-size:.9rem; }
 
-/* Price table base */
+/* ================================
+   Price Table（色分け＋モバイル自動カード）
+   改善: モバイルで各カード上部に「プラン: ○○」ピルを常に表示、
+         セルのラベルは小さめに、値は太字で可読性向上
+================================ */
 .price{ background:transparent; text-align:center }
 .price-table{ max-width:940px; margin:0 auto }
-.price-table table{ width:100%; border-collapse:collapse; font-size:15px; margin-bottom:16px; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden }
-.price-table th, .price-table td{ border:1px solid var(--line); padding:12px; text-align:left; color:var(--text) }
-.price-table th{ background:#111317; color:var(--accent); font-weight:800; letter-spacing:.04em }
+.price-table table{
+  width:100%; border-collapse:collapse; font-size:15px; margin-bottom:16px;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden
+}
+.price-table th, .price-table td{
+  border:1px solid var(--line); padding:12px; text-align:left; color:var(--text)
+}
+.price-table th{
+  background:#111317; color:var(--accent); font-weight:800; letter-spacing:.04em
+}
 .price-table tr.weekday td{ background:#14171c }
 .price-table tr.weekend td{ background:#1d1517 }
+
+/* 注意文 */
 .price .note{ font-size:13.5px; color:var(--muted); line-height:1.7 }
 
-/* Mobile: table -> card (uses data-label provided by JS) */
+/* モバイル変形（カード） */
 @media (max-width:768px){
-  .price-table table, .price-table thead, .price-table tbody, .price-table th, .price-table td, .price-table tr{ display:block; width:100% }
+  .price-table table, .price-table thead, .price-table tbody, .price-table th, .price-table td, .price-table tr{
+    display:block; width:100%
+  }
   .price-table thead{ display:none }
-  .price-table tr{ margin-bottom:18px; background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:10px; box-shadow:var(--shadow); position:relative; }
-  .price-table td{ border:none; padding:8px 10px; text-align:left }
-  .price-table td::before{ content: attr(data-label); font-weight:700; color: var(--muted); display:inline-block; margin-right:6px; min-width:4.2em; }
-  .price-table tr[data-has-plan="false"]::before{ content: "プラン: " attr(data-plan); display:block; font-weight:700; color: var(--muted); margin-bottom:8px; }
+  .price-table tr{
+    margin-bottom:18px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+
+  /* 1) 各セルのラベル（曜日/時間/料金）は小さめの補助テキストとして表示 */
+  .price-table td{
+    border:none; padding:6px 10px; text-align:left;
+    color:var(--text);
+    font-weight:700; /* 値をやや強調 */
+    font-size:1rem;
+    line-height:1.45;
+  }
+  .price-table td::before{
+    content: attr(data-label);
+    display:block;
+    font-weight:700;
+    color: var(--muted);
+    margin-bottom:6px;
+    font-size:0.92rem;
+  }
+
+  /* 2) 重要: 各行の最上部に必ずプランを表示（data-plan が空でない場合） */
+  .price-table tr[data-plan]:not([data-plan=""])::before{
+    content: "プラン: " attr(data-plan);
+    display:block;
+    background: rgba(255,255,255,0.02);
+    color: var(--text);
+    font-weight:800;
+    padding:10px 12px;
+    border-radius:8px;
+    margin-bottom:10px;
+    text-align:center;
+    font-size:1.02rem;
+  }
+
+  /* 3) その行が自分でプラン列を持つ（td がある）場合は、
+        カード内の最初のセル（プランセル）を非表示にして重複を避ける */
+  .price-table tr[data-has-plan="true"] td:first-child{ display:none; }
+
+  /* 4) 料金（最後列）はさらに強調 */
+  .price-table td:last-child{ font-weight:900; color:var(--text); font-size:1.05rem; margin-top:6px; }
 }
 
-/* Shuttle: images horizontal and constrained (only affects shuttle elements) */
+/* ================================
+   Shuttle: images horizontal and constrained (only affects shuttle elements)
+================================ */
 .shuttle { padding:48px 20px; border-bottom:1px solid var(--line); background:transparent; }
 .shuttle h2{ margin:0 0 18px; text-align:center; color:var(--accent); font-size:1.6rem; text-transform:uppercase; letter-spacing:.08em; }
 .shuttle-inner{ max-width:1000px; margin:0 auto; display:flex; gap:18px; align-items:center; justify-content:space-between; padding:8px 0; }
@@ -108,12 +168,15 @@ section h2{ margin:0 0 28px; text-align:center; font-size:1.9rem; letter-spacing
   .shuttle-text{ padding-top:12px; }
 }
 
-/* Amenities */
+/* ================================
+   Amenities
+================================ */
 .amenity-cards{ display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top:18px; }
 .amenity-card{ position:relative; display:flex; align-items:flex-start; gap:14px; padding:18px 20px; background:var(--panel-2); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); }
 .amenity-icon{ width:36px; height:36px; display:grid; place-items:center; color:#d9dee8; }
 .amenity-body h3{ font-size:1.05rem; font-weight:700; margin:0 0 4px; color:#fff; }
 .amenity-body p{ margin:0; color:var(--muted); font-size:.92rem; }
+.amenity-note{ font-size:.9rem; color:var(--muted); }
 
 /* is-featured emphasis */
 .amenity-card.is-featured{ border-color:var(--accent); box-shadow:0 18px 40px rgba(230,70,70,0.08); transform:translateY(-2px); transition: transform .22s ease, box-shadow .22s ease, border-color .22s; }
@@ -121,7 +184,10 @@ section h2{ margin:0 0 28px; text-align:center; font-size:1.9rem; letter-spacing
 .feature-badge{ position:absolute; top:10px; right:12px; background: linear-gradient(180deg, var(--accent), #c33a3a); color:#fff; font-weight:800; font-size:.75rem; padding:6px 10px; border-radius:999px; box-shadow:0 6px 18px rgba(230,70,70,0.12); pointer-events:none; animation: feature-pulse 2.6s ease-in-out infinite; }
 @keyframes feature-pulse{ 0%{transform:scale(1);opacity:1}50%{transform:scale(1.02);opacity:.9}100%{transform:scale(1);opacity:1} }
 
-/* Shop */
+/* ================================
+   Shop
+   （表示/折りたたみは script.js 側で初期展開を制御）
+================================ */
 .shop-section{ max-width:1000px; margin:18px auto 0; padding:8px 12px; }
 .shop-category{ margin-bottom:18px; background:transparent; }
 .shop-category-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0; }
@@ -132,7 +198,14 @@ section h2{ margin:0 0 28px; text-align:center; font-size:1.9rem; letter-spacing
 .shop-table thead th{ background:#111317; color:var(--accent); font-weight:800; padding:10px 12px; text-align:left; }
 .shop-table td{ border-top:1px solid var(--line); padding:10px 12px; color:var(--text); vertical-align:middle; }
 .shop-table .price{ color:var(--accent); font-weight:800; }
-@media (max-width:768px){ .shop-table, .shop-table thead, .shop-table tbody, .shop-table th, .shop-table td, .shop-table tr{ display:block; width:100% } .shop-table thead{ display:none } .shop-table tr{ background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:12px; box-shadow:var(--shadow); } .shop-table td{ border:none; padding:6px 10px } .shop-table td:nth-child(1)::before{ content:"商品: "; font-weight:700; color:var(--muted) } .shop-table td:nth-child(2)::before{ content:"価格: "; font-weight:700; color:var(--muted) } }
+@media (max-width:768px){
+  .shop-table, .shop-table thead, .shop-table tbody, .shop-table th, .shop-table td, .shop-table tr{ display:block; width:100% }
+  .shop-table thead{ display:none }
+  .shop-table tr{ background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:12px; box-shadow:var(--shadow); }
+  .shop-table td{ border:none; padding:6px 10px }
+  .shop-table td:nth-child(1)::before{ content:"商品: "; font-weight:700; color:var(--muted) }
+  .shop-table td:nth-child(2)::before{ content:"価格: "; font-weight:700; color:var(--muted) }
+}
 
 /* Map default container */
 .access .map-embed{ width:min(100%,1000px); margin:12px auto 0; background:#0f1114; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; aspect-ratio:16/9; min-height:220px; }
